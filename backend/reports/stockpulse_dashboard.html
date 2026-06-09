@@ -1,0 +1,689 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Retail Flow AI Dashboard</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f3f7ff;
+                color: #111827;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #07111f, #0f2b5f, #2563eb);
+                color: white;
+                padding: 36px 55px;
+            }
+
+            .header h1 {
+                margin: 0;
+                font-size: 38px;
+            }
+
+            .header p {
+                color: #dbeafe;
+                margin-top: 8px;
+            }
+
+            .container {
+                padding: 28px 55px 55px;
+            }
+
+            .section {
+                background: white;
+                padding: 24px;
+                border-radius: 22px;
+                box-shadow: 0 14px 35px rgba(15,23,42,0.08);
+                margin-bottom: 26px;
+                border: 1px solid #dbeafe;
+            }
+
+            .retailer-grid,
+            .kpi-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+
+            .info-box,
+            .kpi {
+                background: #f8fbff;
+                padding: 18px;
+                border-radius: 18px;
+                border: 1px solid #dbeafe;
+            }
+
+            .info-box span,
+            .kpi span {
+                display: block;
+                color: #64748b;
+                font-weight: bold;
+                font-size: 13px;
+            }
+
+            .info-box strong,
+            .kpi strong {
+                display: block;
+                margin-top: 8px;
+                font-size: 25px;
+                color: #2563eb;
+            }
+
+            .insights {
+                background: linear-gradient(135deg, #eff6ff, #ffffff);
+                border-left: 6px solid #2563eb;
+            }
+
+            .insights ul {
+                margin: 0;
+                padding-left: 20px;
+                line-height: 1.9;
+                color: #334155;
+                font-weight: 600;
+            }
+
+            .charts {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 22px;
+            }
+
+            .chart-card {
+                background: white;
+                padding: 18px;
+                border-radius: 22px;
+                box-shadow: 0 14px 35px rgba(15,23,42,0.08);
+                border: 1px solid #dbeafe;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 1100px;
+            }
+
+            .table-wrap {
+                overflow-x: auto;
+            }
+
+            th {
+                background: #111827;
+                color: white;
+                padding: 13px;
+                font-size: 13px;
+                text-align: left;
+            }
+
+            td {
+                border-bottom: 1px solid #e5e7eb;
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            tr:nth-child(even) {
+                background: #f8fbff;
+            }
+
+            .badge {
+                padding: 6px 10px;
+                border-radius: 999px;
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            .high {
+                background: #dcfce7;
+                color: #166534;
+            }
+
+            .moderate {
+                background: #fef9c3;
+                color: #854d0e;
+            }
+
+            .low {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+
+            @media(max-width: 900px) {
+                .retailer-grid,
+                .kpi-grid,
+                .charts {
+                    grid-template-columns: 1fr;
+                }
+
+                .container,
+                .header {
+                    padding-left: 18px;
+                    padding-right: 18px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Retail Flow AI Dashboard</h1>
+            <p>Smart garment sales analysis, inventory performance and reorder decision dashboard</p>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Retailer Details</h2>
+                <div class="retailer-grid">
+                    <div class="info-box"><span>Shop Name</span><strong>right</strong></div>
+                    <div class="info-box"><span>Owner</span><strong>rudraksh</strong></div>
+                    <div class="info-box"><span>Email</span><strong>rudrakahbajaj109@gmail.com</strong></div>
+                    <div class="info-box"><span>Phone</span><strong>07217258064</strong></div>
+                    <div class="info-box"><span>City</span><strong>ksp</strong></div>
+                </div>
+            </div>
+
+            <div class="section insights">
+                <h2>Smart Insights</h2>
+                <ul>
+                    <li>124 items are classified as High Value and should be considered for reorder.</li><li>139 items are Low Value and may need discounting or should not be reordered now.</li><li>JEANS generated the highest sales amount of ₹541131.35.</li><li>JEANS generated the highest profit of ₹278759.35.</li><li>SHOR002 is currently one of the best performing items.</li><li>245 items have suggested reorder quantity greater than zero.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Business KPIs</h2>
+                <div class="kpi-grid">
+                    <div class="kpi"><span>Total Items</span><strong>415</strong></div>
+                    <div class="kpi"><span>Purchase Qty</span><strong>1597</strong></div>
+                    <div class="kpi"><span>Sold Qty</span><strong>927</strong></div>
+                    <div class="kpi"><span>Remaining Stock</span><strong>670</strong></div>
+                    <div class="kpi"><span>Total Profit</span><strong>₹1005038.37</strong></div>
+                    <div class="kpi"><span>High Value Items</span><strong>124</strong></div>
+                    <div class="kpi"><span>Low Value Items</span><strong>139</strong></div>
+                    <div class="kpi"><span>Reorder Required</span><strong>245</strong></div>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="chart-card"><div>                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.5.0.min.js" integrity="sha256-fHbNLP+GlIXN+efbQec78UkemUz3NJp7UmfGxC1tNxs=" crossorigin="anonymous"></script>                <div id="faa72ba7-d1f4-4088-b74b-7ff16a3c4d79" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("faa72ba7-d1f4-4088-b74b-7ff16a3c4d79")) {                    Plotly.newPlot(                        "faa72ba7-d1f4-4088-b74b-7ff16a3c4d79",                        [{"hovertemplate":"VALUE CATEGORY=%{x}\u003cbr\u003eCOUNT=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Moderate Value","marker":{"color":"#f59e0b","pattern":{"shape":""}},"name":"Moderate Value","orientation":"v","showlegend":true,"text":{"dtype":"f8","bdata":"AAAAAAAAY0A="},"textposition":"auto","x":["Moderate Value"],"xaxis":"x","y":{"dtype":"i2","bdata":"mAA="},"yaxis":"y","type":"bar"},{"hovertemplate":"VALUE CATEGORY=%{x}\u003cbr\u003eCOUNT=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Low Value","marker":{"color":"#dc2626","pattern":{"shape":""}},"name":"Low Value","orientation":"v","showlegend":true,"text":{"dtype":"f8","bdata":"AAAAAABgYUA="},"textposition":"auto","x":["Low Value"],"xaxis":"x","y":{"dtype":"i2","bdata":"iwA="},"yaxis":"y","type":"bar"},{"hovertemplate":"VALUE CATEGORY=%{x}\u003cbr\u003eCOUNT=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"High Value","marker":{"color":"#16a34a","pattern":{"shape":""}},"name":"High Value","orientation":"v","showlegend":true,"text":{"dtype":"f8","bdata":"AAAAAAAAX0A="},"textposition":"auto","x":["High Value"],"xaxis":"x","y":{"dtype":"i1","bdata":"fA=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"VALUE CATEGORY"},"categoryorder":"array","categoryarray":["Moderate Value","Low Value","High Value"]},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"COUNT"}},"legend":{"title":{"text":"VALUE CATEGORY"},"tracegroupgap":0},"title":{"text":"Item Value Classification","x":0.5},"barmode":"relative"},                        {"responsive": true}                    )                };            </script>        </div></div>
+                <div class="chart-card"><div>                            <div id="6e87dcdd-3c85-4a01-9e27-20c6962a4812" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6e87dcdd-3c85-4a01-9e27-20c6962a4812")) {                    Plotly.newPlot(                        "6e87dcdd-3c85-4a01-9e27-20c6962a4812",                        [{"hovertemplate":"CATEGORY=%{x}\u003cbr\u003eTOTAL SALES AMOUNT=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"text":{"dtype":"f8","bdata":"MzMzs5aDIEHhehSuZNkVQSlcj8JLrRVBMzMzM2nKEEEUrkfhfEQLQQ=="},"textposition":"auto","x":["JEANS","T-SHIRT","SHIRT","LOWER","SHORT"],"xaxis":"x","y":{"dtype":"f8","bdata":"MzMzs5aDIEHhehSuZNkVQSlcj8JLrRVBMzMzM2nKEEEUrkfhfEQLQQ=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"CATEGORY"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"TOTAL SALES AMOUNT"}},"legend":{"tracegroupgap":0},"title":{"text":"Top Categories by Sales Amount","x":0.5},"barmode":"relative"},                        {"responsive": true}                    )                };            </script>        </div></div>
+                <div class="chart-card"><div>                            <div id="8e2c0bee-b62b-4daf-abba-5bf7edc0ff37" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("8e2c0bee-b62b-4daf-abba-5bf7edc0ff37")) {                    Plotly.newPlot(                        "8e2c0bee-b62b-4daf-abba-5bf7edc0ff37",                        [{"hovertemplate":"CATEGORY=%{x}\u003cbr\u003ePROFIT=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"text":{"dtype":"f8","bdata":"ZmZmZp0DEUHC9ShcmRwKQVK4HoVn3AhBZmZmZiIDBEEUrkfhFKwBQQ=="},"textposition":"auto","x":["JEANS","T-SHIRT","SHIRT","LOWER","SHORT"],"xaxis":"x","y":{"dtype":"f8","bdata":"ZmZmZp0DEUHC9ShcmRwKQVK4HoVn3AhBZmZmZiIDBEEUrkfhFKwBQQ=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"CATEGORY"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"PROFIT"}},"legend":{"tracegroupgap":0},"title":{"text":"Top Categories by Profit","x":0.5},"barmode":"relative"},                        {"responsive": true}                    )                };            </script>        </div></div>
+                <div class="chart-card"><div>                            <div id="81cdaa08-f530-4b2c-bc5b-4c4e3d4e8120" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("81cdaa08-f530-4b2c-bc5b-4c4e3d4e8120")) {                    Plotly.newPlot(                        "81cdaa08-f530-4b2c-bc5b-4c4e3d4e8120",                        [{"hovertemplate":"SOLD QTY=%{text}\u003cbr\u003eITEM NAME=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"h","showlegend":false,"text":{"dtype":"f8","bdata":"AAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEA="},"textposition":"auto","x":{"dtype":"i1","bdata":"BQUFBQUFBQUFBQ=="},"xaxis":"x","y":["TSH018","JNS001","JNS007","TSH013","TSH005","TSH002","TSH009","TSH007","LOW011","LOW008"],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"SOLD QTY"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"ITEM NAME"},"categoryorder":"total ascending"},"legend":{"tracegroupgap":0},"title":{"text":"Top 10 Sold Items","x":0.5},"barmode":"relative"},                        {"responsive": true}                    )                };            </script>        </div></div>
+                <div class="chart-card"><div>                            <div id="81fcb305-ba74-4334-b277-525cddd30350" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("81fcb305-ba74-4334-b277-525cddd30350")) {                    Plotly.newPlot(                        "81fcb305-ba74-4334-b277-525cddd30350",                        [{"customdata":[["JNS001","JEANS","BLACK",30],["JNS001","JEANS","BLACK",36],["JNS001","JEANS","BLACK",38],["JNS002","JEANS","LIGHT BLUE",36],["JNS004","JEANS","BLUE",30],["JNS005","JEANS","BLACK",32],["JNS005","JEANS","BLACK",34],["JNS005","JEANS","BLACK",36],["JNS006","JEANS","LIGHT BLUE",36],["JNS006","JEANS","LIGHT BLUE",38],["JNS007","JEANS","WHITE",36],["JNS008","JEANS","BLUE",32],["JNS008","JEANS","BLUE",36],["JNS009","JEANS","BLACK",32],["JNS009","JEANS","BLACK",36],["JNS009","JEANS","BLACK",38],["JNS010","JEANS","LIGHT BLUE",32],["JNS011","JEANS","WHITE",36],["JNS012","JEANS","BLUE",32],["JNS012","JEANS","BLUE",36],["JNS013","JEANS","BLACK",34],["JNS014","JEANS","LIGHT BLUE",30],["JNS014","JEANS","LIGHT BLUE",32],["JNS014","JEANS","LIGHT BLUE",36],["JNS014","JEANS","LIGHT BLUE",38],["JNS015","JEANS","WHITE",30],["JNS015","JEANS","WHITE",34],["JNS016","JEANS","BLUE",34],["JNS017","JEANS","BLACK",32],["JNS017","JEANS","BLACK",34],["JNS017","JEANS","BLACK",36],["JNS018","JEANS","LIGHT BLUE",30],["JNS018","JEANS","LIGHT BLUE",34],["JNS018","JEANS","LIGHT BLUE",38],["LOW001","LOWER","BLACK","L"],["LOW001","LOWER","BLACK","M"],["LOW002","LOWER","WHITE","L"],["LOW002","LOWER","WHITE","S"],["LOW004","LOWER","GREEN","M"],["LOW004","LOWER","GREEN","S"],["LOW004","LOWER","GREEN","XL"],["LOW005","LOWER","PRINTED","S"],["LOW005","LOWER","PRINTED","XXL"],["LOW006","LOWER","PRINTED","S"],["LOW008","LOWER","PRINTED","M"],["LOW008","LOWER","PRINTED","S"],["LOW009","LOWER","RED","M"],["LOW010","LOWER","BLACK","L"],["LOW010","LOWER","BLACK","M"],["LOW011","LOWER","PRINTED","XL"],["LOW011","LOWER","PRINTED","XXL"],["LOW012","LOWER","RED","L"],["LOW013","LOWER","WHITE","L"],["LOW014","LOWER","RED","S"],["LOW015","LOWER","PRINTED","M"],["LOW015","LOWER","PRINTED","S"],["LOW015","LOWER","PRINTED","XXL"],["SHOR001","SHORT","PRINTED",32],["SHOR001","SHORT","PRINTED",36],["SHOR002","SHORT","BLACK",30],["SHOR002","SHORT","BLACK",36],["SHOR003","SHORT","GREEN",30],["SHOR003","SHORT","GREEN",34],["SHOR003","SHORT","GREEN",38],["SHOR004","SHORT","PRINTED",30],["SHOR004","SHORT","PRINTED",38],["SHOR005","SHORT","GREEN",32],["SHOR005","SHORT","GREEN",34],["SHOR005","SHORT","GREEN",36],["SHOR007","SHORT","RED",36],["SHOR008","SHORT","PRINTED",30],["SHOR008","SHORT","PRINTED",32],["SHOR008","SHORT","PRINTED",36],["SHOR008","SHORT","PRINTED",38],["SHOR009","SHORT","RED",30],["SHOR010","SHORT","BLACK",30],["SHOR010","SHORT","BLACK",34],["SHOR010","SHORT","BLACK",36],["SHOR012","SHORT","WHITE",30],["SHOR014","SHORT","BLACK",34],["SHOR014","SHORT","BLACK",36],["SHOR014","SHORT","BLACK",38],["SHT001","SHIRT","BLACK","L"],["SHT001","SHIRT","BLACK","S "],["SHT002","SHIRT","LIGHT BLUE","L"],["SHT003","SHIRT","WHITE","M"],["SHT003","SHIRT","WHITE","XXL"],["SHT004","SHIRT","BLUE","S "],["SHT005","SHIRT","RED","M"],["SHT006","SHIRT","BROWN","XL"],["SHT006","SHIRT","BROWN","XXL"],["SHT007","SHIRT","ORANGE","M"],["SHT009","SHIRT","LIGHT BLUE","M"],["SHT009","SHIRT","LIGHT BLUE","XXL"],["SHT010","SHIRT","WHITE","M"],["SHT010","SHIRT","WHITE","S "],["SHT010","SHIRT","WHITE","XXL"],["SHT011","SHIRT","BLUE","S "],["SHT011","SHIRT","BLUE","XL"],["SHT011","SHIRT","BLUE","XXL"],["SHT012","SHIRT","RED","M"],["SHT012","SHIRT","RED","XXL"],["SHT013","SHIRT","BROWN","M"],["SHT013","SHIRT","BROWN","XXL"],["SHT014","SHIRT","ORANGE","M"],["SHT014","SHIRT","ORANGE","XXL"],["SHT015","SHIRT","BLACK","M"],["SHT016","SHIRT","LIGHT BLUE","L"],["SHT016","SHIRT","LIGHT BLUE","XL"],["SHT017","SHIRT","WHITE","M"],["SHT017","SHIRT","WHITE","S "],["SHT017","SHIRT","WHITE","XL"],["SHT018","SHIRT","BLUE","M"],["SHT018","SHIRT","BLUE","S "],["SHT018","SHIRT","BLUE","XL"],["SHT018","SHIRT","BLUE","XXL"],["TSH001","T-SHIRT","BLACK","S"],["TSH002","T-SHIRT","WHITE","M"],["TSH003","T-SHIRT","PURPLE","S"],["TSH004","T-SHIRT","GREEN","XL"],["TSH004","T-SHIRT","GREEN","XXL"],["TSH006","T-SHIRT","PRINTED","L"],["TSH006","T-SHIRT","PRINTED","M"],["TSH006","T-SHIRT","PRINTED","XL"],["TSH007","T-SHIRT","BLACK","XL"],["TSH008","T-SHIRT","PRINTED","L"],["TSH008","T-SHIRT","PRINTED","XL"],["TSH008","T-SHIRT","PRINTED","XXL"],["TSH009","T-SHIRT","RED","M"],["TSH010","T-SHIRT","BLACK","L"],["TSH011","T-SHIRT","PRINTED","L"],["TSH011","T-SHIRT","PRINTED","M"],["TSH011","T-SHIRT","PRINTED","S"],["TSH011","T-SHIRT","PRINTED","XL"],["TSH012","T-SHIRT","RED","L"],["TSH012","T-SHIRT","RED","M"],["TSH012","T-SHIRT","RED","XXL"],["TSH013","T-SHIRT","WHITE","XL"],["TSH014","T-SHIRT","RED","L"],["TSH014","T-SHIRT","RED","XL"],["TSH015","T-SHIRT","PRINTED","M"],["TSH015","T-SHIRT","PRINTED","S"],["TSH015","T-SHIRT","PRINTED","XL"],["TSH016","T-SHIRT","BLACK","L"],["TSH016","T-SHIRT","BLACK","S"],["TSH017","T-SHIRT","RED","L"],["TSH017","T-SHIRT","RED","S"],["TSH017","T-SHIRT","RED","XXL"],["TSH018","T-SHIRT","WHITE","XL"],["TSH019","T-SHIRT","PRINTED","L"],["TSH019","T-SHIRT","PRINTED","M"],["TSH019","T-SHIRT","PRINTED","S"]],"hovertemplate":"VALUE CATEGORY=Moderate Value\u003cbr\u003eSALES PERCENTAGE=%{x}\u003cbr\u003eMARGIN PERCENTAGE=%{y}\u003cbr\u003eSOLD QTY=%{marker.size}\u003cbr\u003eITEM NAME=%{customdata[0]}\u003cbr\u003eCATEGORY=%{customdata[1]}\u003cbr\u003eCOLOUR=%{customdata[2]}\u003cbr\u003eSIZE=%{customdata[3]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Moderate Value","marker":{"color":"#f59e0b","size":{"dtype":"i1","bdata":"AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI="},"sizemode":"area","sizeref":0.0125,"symbol":"circle"},"mode":"markers","name":"Moderate Value","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAAASUAAAAAAAABJQHsUrkfhqlBAAAAAAAAASUAAAAAAAABJQAAAAAAAAERAAAAAAAAAREAAAAAAAABJQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAASUAAAAAAAABEQAAAAAAAAElAexSuR+GqUEAAAAAAAABEQAAAAAAAAElAAAAAAAAAREAAAAAAAABJQAAAAAAAAERAAAAAAAAASUAAAAAAAABEQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAAREAAAAAAAABEQAAAAAAAAERAAAAAAAAASUAAAAAAAABJQAAAAAAAAElAexSuR+GqUEAAAAAAAABEQAAAAAAAAElAAAAAAAAAREB7FK5H4apQQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQHsUrkfhqlBAexSuR+GqUEB7FK5H4apQQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAASUAAAAAAAABJQHsUrkfhqlBAAAAAAAAAREAAAAAAAABEQHsUrkfhqlBAAAAAAAAASUB7FK5H4apQQHsUrkfhqlBAAAAAAAAASUAAAAAAAABJQHsUrkfhqlBAAAAAAAAASUB7FK5H4apQQAAAAAAAAERAexSuR+GqUEB7FK5H4apQQHsUrkfhqlBAAAAAAAAASUAAAAAAAABEQAAAAAAAAElAAAAAAAAASUB7FK5H4apQQAAAAAAAAElAAAAAAAAASUB7FK5H4apQQHsUrkfhqlBAexSuR+GqUEAAAAAAAABEQAAAAAAAAElAexSuR+GqUEAAAAAAAABEQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAElAAAAAAAAASUB7FK5H4apQQHsUrkfhqlBAAAAAAAAASUB7FK5H4apQQAAAAAAAAElAexSuR+GqUEB7FK5H4apQQHsUrkfhqlBAexSuR+GqUEB7FK5H4apQQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAElAexSuR+GqUEB7FK5H4apQQHsUrkfhqlBAexSuR+GqUEB7FK5H4apQQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAASUAAAAAAAABJQHsUrkfhqlBAAAAAAAAASUAAAAAAAABJQHsUrkfhqlBAAAAAAAAASUB7FK5H4apQQHsUrkfhqlBAAAAAAAAASUB7FK5H4apQQAAAAAAAAElAexSuR+GqUEAAAAAAAABEQAAAAAAAAElAAAAAAAAASUAAAAAAAABJQAAAAAAAAERAAAAAAAAASUB7FK5H4apQQAAAAAAAAElAAAAAAAAAREAAAAAAAABEQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAASUB7FK5H4apQQAAAAAAAAElAAAAAAAAAREAAAAAAAABJQAAAAAAAAElAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAexSuR+GqUEAAAAAAAABEQHsUrkfhqlBAexSuR+GqUEAAAAAAAABJQAAAAAAAAERAAAAAAAAASUB7FK5H4apQQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"hetRuB4FSkDD9Shcj4JLQB+F61G4vklAw\u002fUoXI9CSUBSuB6F69FJQB+F61G4vklAZmZmZmYGSEAUrkfhehRJQJqZmZmZ2UlA16NwPQrXSUAfhetRuL5LQKRwPQrX40lAcT0K16MQSkCuR+F6FI5KQLgehetRuEpAmpmZmZmZSkApXI\u002fC9QhJQEjhehSux0lAcT0K16OwSkB7FK5H4fpJQGZmZmZm5kdAXI\u002fC9Si8SUCkcD0K1yNJQAAAAAAAAEpA16NwPQpXSkDXo3A9ChdJQFyPwvUoHElAhetRuB4FSkCF61G4HkVKQK5H4XoUrkpAH4XrUbg+SkBxPQrXo1BJQK5H4XoUjkpAAAAAAABgS0BmZmZmZsZOQArXo3A9Kk9A7FG4HoWrT0DD9Shcj0JPQLgehetRuFBA7FG4HoXbUEDhehSuR\u002fFQQOF6FK5HQVFAexSuR+GqUEAK16NwPYpMQHE9Ctej0EpAH4XrUbi+TEBxPQrXo1BLQPYoXI\u002fCNU5AcT0K16PwS0AAAAAAAKBLQHE9CtejcEtAhetRuB6FSkBcj8L1KLxLQDMzMzMzc0xA4XoUrkehSkCuR+F6FA5LQHE9Ctej8ElAUrgeheuxTkDhehSuRwFQQDMzMzMzg1FACtejcD3aUUA9CtejcG1RQIXrUbgeBVFACtejcD26UEBxPQrXo1BQQArXo3A9alBAUrgeheuhUEAfhetRuF5PQNejcD0KF1BAw\u002fUoXI8yUEDD9Shcj8JOQArXo3A9Ck5ACtejcD3KTkCkcD0K1yNPQIXrUbgehU9AcT0K16OQUECkcD0K1wNQQHsUrkfhKlBAKVyPwvUoUEA9CtejcL1OQClcj8L1SE9AcT0K16NQTkBcj8L1KFxOQOF6FK5H4UxA9ihcj8LVS0CPwvUoXO9LQIXrUbgeBUxAj8L1KFwPSkCamZmZmXlLQMP1KFyPYktA16NwPQp3S0C4HoXrUbhNQDMzMzMzc01A9ihcj8J1TUCkcD0K1yNPQMP1KFyPIlBAw\u002fUoXI+iT0AAAAAAACBJQLgehetReEpAmpmZmZlZSUCF61G4HgVNQBSuR+F6FExAw\u002fUoXI8iTUAfhetRuB5NQLgehetR+EpApHA9CtfDS0AAAAAAAIBMQEjhehSuh0xAH4XrUbi+TUDXo3A9CldLQHsUrkfhukxAZmZmZmamTEDhehSuR8FLQOF6FK5HQUtAmpmZmZn5TEApXI\u002fC9YhMQEjhehSux1BAzczMzMwMTkAUrkfherRNQAAAAAAAIE5ACtejcD3qTkCamZmZmdlOQFyPwvUoXE9AXI\u002fC9ShcTkCPwvUoXE9QQFK4HoXrsU1A7FG4HoULTkC4HoXrUbhOQOxRuB6FK05AXI\u002fC9SjcTECF61G4HuVKQM3MzMzM7EtAuB6F61FYSkBmZmZmZsZLQKRwPQrX40pA4XoUrkchTUApXI\u002fC9ehKQFyPwvUofEhACtejcD1KS0Bcj8L1KNxKQJqZmZmZGU9AFK5H4XoUTkCF61G4HgVOQAAAAAAAIE5AmpmZmZl5TkDsUbgehYtPQD0K16NwHU9A4XoUrkcBT0CF61G4HoVPQHsUrkfhWk5AMzMzMzOTTkAUrkfhetROQA=="},"yaxis":"y","type":"scatter"},{"customdata":[["JNS001","JEANS","BLACK",32],["JNS002","JEANS","LIGHT BLUE",38],["JNS003","JEANS","WHITE",34],["JNS003","JEANS","WHITE",36],["JNS003","JEANS","WHITE",38],["JNS004","JEANS","BLUE",34],["JNS004","JEANS","BLUE",36],["JNS005","JEANS","BLACK",38],["JNS007","JEANS","WHITE",34],["JNS008","JEANS","BLUE",30],["JNS008","JEANS","BLUE",34],["JNS009","JEANS","BLACK",30],["JNS010","JEANS","LIGHT BLUE",30],["JNS010","JEANS","LIGHT BLUE",34],["JNS010","JEANS","LIGHT BLUE",36],["JNS010","JEANS","LIGHT BLUE",38],["JNS011","JEANS","WHITE",38],["JNS012","JEANS","BLUE",30],["JNS014","JEANS","LIGHT BLUE",34],["JNS015","JEANS","WHITE",32],["JNS015","JEANS","WHITE",38],["JNS016","JEANS","BLUE",36],["JNS016","JEANS","BLUE",38],["JNS017","JEANS","BLACK",30],["JNS018","JEANS","LIGHT BLUE",32],["LOW001","LOWER","BLACK","S"],["LOW001","LOWER","BLACK","XL"],["LOW002","LOWER","WHITE","M"],["LOW002","LOWER","WHITE","XXL"],["LOW003","LOWER","PURPLE","XL"],["LOW004","LOWER","GREEN","L"],["LOW005","LOWER","PRINTED","L"],["LOW005","LOWER","PRINTED","M"],["LOW005","LOWER","PRINTED","XL"],["LOW006","LOWER","PRINTED","L"],["LOW006","LOWER","PRINTED","XXL"],["LOW007","LOWER","BLACK","M"],["LOW007","LOWER","BLACK","XL"],["LOW008","LOWER","PRINTED","L"],["LOW010","LOWER","BLACK","XXL"],["LOW011","LOWER","PRINTED","L"],["LOW011","LOWER","PRINTED","S"],["LOW012","LOWER","RED","M"],["LOW013","LOWER","WHITE","M"],["LOW013","LOWER","WHITE","XXL"],["LOW014","LOWER","RED","XL"],["LOW015","LOWER","PRINTED","L"],["LOW015","LOWER","PRINTED","XL"],["SHOR001","SHORT","PRINTED",30],["SHOR001","SHORT","PRINTED",38],["SHOR002","SHORT","BLACK",32],["SHOR002","SHORT","BLACK",34],["SHOR004","SHORT","PRINTED",34],["SHOR004","SHORT","PRINTED",36],["SHOR005","SHORT","GREEN",30],["SHOR005","SHORT","GREEN",38],["SHOR006","SHORT","PRINTED",30],["SHOR006","SHORT","PRINTED",32],["SHOR006","SHORT","PRINTED",34],["SHOR007","SHORT","RED",30],["SHOR007","SHORT","RED",34],["SHOR008","SHORT","PRINTED",34],["SHOR009","SHORT","RED",36],["SHOR009","SHORT","RED",38],["SHOR010","SHORT","BLACK",32],["SHOR010","SHORT","BLACK",38],["SHOR011","SHORT","RED",34],["SHOR011","SHORT","RED",36],["SHOR012","SHORT","WHITE",32],["SHOR014","SHORT","BLACK",30],["SHT001","SHIRT","BLACK","M"],["SHT001","SHIRT","BLACK","XXL"],["SHT002","SHIRT","LIGHT BLUE","S "],["SHT003","SHIRT","WHITE","L"],["SHT003","SHIRT","WHITE","S "],["SHT004","SHIRT","BLUE","L"],["SHT004","SHIRT","BLUE","M"],["SHT004","SHIRT","BLUE","XXL"],["SHT005","SHIRT","RED","L"],["SHT005","SHIRT","RED","XXL"],["SHT007","SHIRT","ORANGE","L"],["SHT007","SHIRT","ORANGE","XXL"],["SHT008","SHIRT","BLACK","L"],["SHT008","SHIRT","BLACK","S "],["SHT008","SHIRT","BLACK","XL"],["SHT009","SHIRT","LIGHT BLUE","L"],["SHT009","SHIRT","LIGHT BLUE","XL"],["SHT010","SHIRT","WHITE","XL"],["SHT012","SHIRT","RED","S "],["SHT013","SHIRT","BROWN","L"],["SHT013","SHIRT","BROWN","S "],["SHT014","SHIRT","ORANGE","L"],["SHT014","SHIRT","ORANGE","S "],["SHT015","SHIRT","BLACK","XL"],["SHT016","SHIRT","LIGHT BLUE","XXL"],["TSH001","T-SHIRT","BLACK","XXL"],["TSH002","T-SHIRT","WHITE","L"],["TSH002","T-SHIRT","WHITE","S"],["TSH003","T-SHIRT","PURPLE","M"],["TSH003","T-SHIRT","PURPLE","XXL"],["TSH004","T-SHIRT","GREEN","M"],["TSH005","T-SHIRT","PRINTED","L"],["TSH005","T-SHIRT","PRINTED","M"],["TSH005","T-SHIRT","PRINTED","S"],["TSH007","T-SHIRT","BLACK","L"],["TSH007","T-SHIRT","BLACK","M"],["TSH007","T-SHIRT","BLACK","XXL"],["TSH008","T-SHIRT","PRINTED","M"],["TSH008","T-SHIRT","PRINTED","S"],["TSH009","T-SHIRT","RED","L"],["TSH009","T-SHIRT","RED","XL"],["TSH010","T-SHIRT","BLACK","XL"],["TSH013","T-SHIRT","WHITE","L"],["TSH014","T-SHIRT","RED","M"],["TSH014","T-SHIRT","RED","XXL"],["TSH015","T-SHIRT","PRINTED","L"],["TSH016","T-SHIRT","BLACK","M"],["TSH016","T-SHIRT","BLACK","XL"],["TSH016","T-SHIRT","BLACK","XXL"],["TSH017","T-SHIRT","RED","XL"],["TSH018","T-SHIRT","WHITE","L"],["TSH018","T-SHIRT","WHITE","M"],["TSH018","T-SHIRT","WHITE","S"],["TSH019","T-SHIRT","PRINTED","XL"]],"hovertemplate":"VALUE CATEGORY=High Value\u003cbr\u003eSALES PERCENTAGE=%{x}\u003cbr\u003eMARGIN PERCENTAGE=%{y}\u003cbr\u003eSOLD QTY=%{marker.size}\u003cbr\u003eITEM NAME=%{customdata[0]}\u003cbr\u003eCATEGORY=%{customdata[1]}\u003cbr\u003eCOLOUR=%{customdata[2]}\u003cbr\u003eSIZE=%{customdata[3]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"High Value","marker":{"color":"#16a34a","size":{"dtype":"i1","bdata":"BQMFBAMFBAMFBAUEBAUEAwMEBQUDBAMEAwMEBAMEBQUEBAUDBAQFAwUDBAQDBAUEAwMEBQUEAwMDBAUDBQUEAwQDBQQEAwMDBAQEBAMDBAMEAwQEBAQEBAQEBAUDBAMDBQMEAwQFBAMFBAMEAwUEBAUEAwUEBAMEBQQDBA=="},"sizemode":"area","sizeref":0.0125,"symbol":"circle"},"mode":"markers","name":"High Value","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUAAAAAAAABZQAAAAAAAAFlAAAAAAAAAWUA="},"xaxis":"x","y":{"dtype":"f8","bdata":"7FG4HoWrSkCkcD0K1wNKQK5H4XoUrkhA16NwPQqXSUBI4XoUrmdIQD0K16NwPUpA7FG4HoWrSUBI4XoUrkdJQClcj8L16EpAXI\u002fC9SjcSUB7FK5H4dpJQEjhehSuh0pA9ihcj8I1SEDsUbgehctIQHE9Ctej8EdAhetRuB4lSUBxPQrXo5BKQNejcD0KV0lAw\u002fUoXI+iSUBSuB6F6zFJQLgehetRGElApHA9CtfDSUDhehSuR2FJQI\u002fC9ShcL0tArkfhehSuSUDD9ShcjyJOQEjhehSuB09AH4XrUbi+T0CkcD0K1yNPQJqZmZmZmU9ASOF6FK4nUUB7FK5H4TpRQAAAAAAAsFBAhetRuB5FUUB7FK5H4bpMQOxRuB6Fq0xAexSuR+E6SkAUrkfhevRKQPYoXI\u002fClUtA7FG4HoXrTEAUrkfherRMQFK4HoXr0UxAexSuR+G6SkD2KFyPwnVLQJqZmZmZ+UtAZmZmZmbGS0BmZmZmZgZKQB+F61G4vkpA9ihcj8IVT0DhehSuR4FPQI\u002fC9Shcv1FAuB6F61F4UUDNzMzMzCxQQD0K16NwjVBAH4XrUbg+UEB7FK5H4QpQQJqZmZmZmVBAw\u002fUoXI+CUECPwvUoXH9QQM3MzMzMPFBA9ihcj8IFUED2KFyPwhVOQPYoXI\u002fCJVBAzczMzMw8UEDhehSuR6FQQFyPwvUorFBAKVyPwvUITkAK16NwPapNQMP1KFyPwk9ASOF6FK5nT0D2KFyPwvVMQDMzMzMz001AhetRuB6FS0BSuB6F6xFNQHsUrkfhukxAuB6F61EYS0DD9Shcj8JKQOxRuB6F60pA16NwPQp3S0D2KFyPwpVLQB+F61G4Pk1AAAAAAADATEC4HoXrUbhPQHsUrkfhWk9AmpmZmZmZT0DsUbgehQtPQAAAAAAAgE1AAAAAAABATkAAAAAAAKBLQJqZmZmZ2UxArkfhehSOS0B7FK5H4XpKQOF6FK5H4UpA9ihcj8KVTECkcD0K1+NNQHE9Ctej8FBApHA9CteDTEAK16NwPepNQIXrUbgeRU5ACtejcD2KTUDD9Shcj6JNQBSuR+F6lE1ApHA9CtfjTECuR+F6FE5MQNejcD0KV09ASOF6FK7HT0Bcj8L1KPxOQM3MzMzMbE1AhetRuB5lTUApXI\u002fC9UhNQClcj8L1SExA9ihcj8L1TEB7FK5H4bpIQNejcD0KV0xAXI\u002fC9SgcTECPwvUoXO9OQDMzMzMzk01A7FG4HoWrTUB7FK5H4bpNQFK4HoXrsU9Aj8L1KFwPT0DhehSuR6FPQNejcD0KV09APQrXo3B9TkA="},"yaxis":"y","type":"scatter"},{"customdata":[["JNS001","JEANS","BLACK",34],["JNS002","JEANS","LIGHT BLUE",30],["JNS002","JEANS","LIGHT BLUE",32],["JNS002","JEANS","LIGHT BLUE",34],["JNS003","JEANS","WHITE",30],["JNS003","JEANS","WHITE",32],["JNS004","JEANS","BLUE",32],["JNS004","JEANS","BLUE",38],["JNS005","JEANS","BLACK",30],["JNS006","JEANS","LIGHT BLUE",30],["JNS006","JEANS","LIGHT BLUE",32],["JNS006","JEANS","LIGHT BLUE",34],["JNS007","JEANS","WHITE",30],["JNS007","JEANS","WHITE",32],["JNS007","JEANS","WHITE",38],["JNS008","JEANS","BLUE",38],["JNS009","JEANS","BLACK",34],["JNS011","JEANS","WHITE",30],["JNS011","JEANS","WHITE",32],["JNS011","JEANS","WHITE",34],["JNS012","JEANS","BLUE",34],["JNS012","JEANS","BLUE",38],["JNS013","JEANS","BLACK",30],["JNS013","JEANS","BLACK",32],["JNS013","JEANS","BLACK",36],["JNS013","JEANS","BLACK",38],["JNS015","JEANS","WHITE",36],["JNS016","JEANS","BLUE",30],["JNS016","JEANS","BLUE",32],["JNS017","JEANS","BLACK",38],["JNS018","JEANS","LIGHT BLUE",36],["LOW001","LOWER","BLACK","XXL"],["LOW002","LOWER","WHITE","XL"],["LOW003","LOWER","PURPLE","L"],["LOW003","LOWER","PURPLE","M"],["LOW003","LOWER","PURPLE","S"],["LOW003","LOWER","PURPLE","XXL"],["LOW004","LOWER","GREEN","XXL"],["LOW006","LOWER","PRINTED","M"],["LOW006","LOWER","PRINTED","XL"],["LOW007","LOWER","BLACK","L"],["LOW007","LOWER","BLACK","S"],["LOW007","LOWER","BLACK","XXL"],["LOW008","LOWER","PRINTED","XL"],["LOW008","LOWER","PRINTED","XXL"],["LOW009","LOWER","RED","L"],["LOW009","LOWER","RED","S"],["LOW009","LOWER","RED","XL"],["LOW009","LOWER","RED","XXL"],["LOW010","LOWER","BLACK","S"],["LOW010","LOWER","BLACK","XL"],["LOW011","LOWER","PRINTED","M"],["LOW012","LOWER","RED","S"],["LOW012","LOWER","RED","XL"],["LOW012","LOWER","RED","XXL"],["LOW013","LOWER","WHITE","S"],["LOW013","LOWER","WHITE","XL"],["LOW014","LOWER","RED","L"],["LOW014","LOWER","RED","M"],["LOW014","LOWER","RED","XXL"],["SHOR001","SHORT","PRINTED",34],["SHOR002","SHORT","BLACK",38],["SHOR003","SHORT","GREEN",32],["SHOR003","SHORT","GREEN",36],["SHOR004","SHORT","PRINTED",32],["SHOR006","SHORT","PRINTED",36],["SHOR006","SHORT","PRINTED",38],["SHOR007","SHORT","RED",32],["SHOR007","SHORT","RED",38],["SHOR009","SHORT","RED",32],["SHOR009","SHORT","RED",34],["SHOR011","SHORT","RED",30],["SHOR011","SHORT","RED",32],["SHOR011","SHORT","RED",38],["SHOR012","SHORT","WHITE",34],["SHOR012","SHORT","WHITE",36],["SHOR012","SHORT","WHITE",38],["SHOR014","SHORT","BLACK",32],["SHT001","SHIRT","BLACK","XL"],["SHT002","SHIRT","LIGHT BLUE","M"],["SHT002","SHIRT","LIGHT BLUE","XL"],["SHT002","SHIRT","LIGHT BLUE","XXL"],["SHT003","SHIRT","WHITE","XL"],["SHT004","SHIRT","BLUE","XL"],["SHT005","SHIRT","RED","S "],["SHT005","SHIRT","RED","XL"],["SHT006","SHIRT","BROWN","L"],["SHT006","SHIRT","BROWN","M"],["SHT006","SHIRT","BROWN","S "],["SHT007","SHIRT","ORANGE","S "],["SHT007","SHIRT","ORANGE","XL"],["SHT008","SHIRT","BLACK","M"],["SHT008","SHIRT","BLACK","XXL"],["SHT009","SHIRT","LIGHT BLUE","S "],["SHT010","SHIRT","WHITE","L"],["SHT011","SHIRT","BLUE","L"],["SHT011","SHIRT","BLUE","M"],["SHT012","SHIRT","RED","L"],["SHT012","SHIRT","RED","XL"],["SHT013","SHIRT","BROWN","XL"],["SHT014","SHIRT","ORANGE","XL"],["SHT015","SHIRT","BLACK","L"],["SHT015","SHIRT","BLACK","S "],["SHT015","SHIRT","BLACK","XXL"],["SHT016","SHIRT","LIGHT BLUE","M"],["SHT016","SHIRT","LIGHT BLUE","S "],["SHT017","SHIRT","WHITE","L"],["SHT017","SHIRT","WHITE","XXL"],["SHT018","SHIRT","BLUE","L"],["TSH001","T-SHIRT","BLACK","L"],["TSH001","T-SHIRT","BLACK","M"],["TSH001","T-SHIRT","BLACK","XL"],["TSH002","T-SHIRT","WHITE","XL"],["TSH002","T-SHIRT","WHITE","XXL"],["TSH003","T-SHIRT","PURPLE","L"],["TSH003","T-SHIRT","PURPLE","XL"],["TSH004","T-SHIRT","GREEN","L"],["TSH004","T-SHIRT","GREEN","S"],["TSH005","T-SHIRT","PRINTED","XL"],["TSH005","T-SHIRT","PRINTED","XXL"],["TSH006","T-SHIRT","PRINTED","S"],["TSH006","T-SHIRT","PRINTED","XXL"],["TSH007","T-SHIRT","BLACK","S"],["TSH009","T-SHIRT","RED","S"],["TSH009","T-SHIRT","RED","XXL"],["TSH010","T-SHIRT","BLACK","M"],["TSH010","T-SHIRT","BLACK","S"],["TSH010","T-SHIRT","BLACK","XXL"],["TSH011","T-SHIRT","PRINTED","XXL"],["TSH012","T-SHIRT","RED","S"],["TSH012","T-SHIRT","RED","XL"],["TSH013","T-SHIRT","WHITE","M"],["TSH013","T-SHIRT","WHITE","S"],["TSH013","T-SHIRT","WHITE","XXL"],["TSH014","T-SHIRT","RED","S"],["TSH015","T-SHIRT","PRINTED","XXL"],["TSH017","T-SHIRT","RED","M"],["TSH018","T-SHIRT","WHITE","XXL"],["TSH019","T-SHIRT","PRINTED","XXL"]],"hovertemplate":"VALUE CATEGORY=Low Value\u003cbr\u003eSALES PERCENTAGE=%{x}\u003cbr\u003eMARGIN PERCENTAGE=%{y}\u003cbr\u003eSOLD QTY=%{marker.size}\u003cbr\u003eITEM NAME=%{customdata[0]}\u003cbr\u003eCATEGORY=%{customdata[1]}\u003cbr\u003eCOLOUR=%{customdata[2]}\u003cbr\u003eSIZE=%{customdata[3]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Low Value","marker":{"color":"#dc2626","size":{"dtype":"i1","bdata":"AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ=="},"sizemode":"area","sizeref":0.0125,"symbol":"circle"},"mode":"markers","name":"Low Value","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAAANEAAAAAAAAA5QAAAAAAAADRAAAAAAAAANEAAAAAAAAA5QAAAAAAAADRAAAAAAAAANEAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAAAAAAAAA0QAAAAAAAADRAAAAAAAAAOUAAAAAAAAA0QArXo3A9qkBACtejcD2qQEAAAAAAAAA0QAAAAAAAADlAAAAAAAAANEAAAAAAAAA0QAAAAAAAADRACtejcD2qQEAAAAAAAAA5QAAAAAAAADRAAAAAAAAAOUAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAAAAAAAAA0QArXo3A9qkBAAAAAAAAAOUAK16NwPapAQAAAAAAAADlAAAAAAAAANEAAAAAAAAA5QArXo3A9qkBACtejcD2qQEAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAAAAAAAAA0QArXo3A9qkBACtejcD2qQEAAAAAAAAA5QArXo3A9qkBAAAAAAAAANEAK16NwPapAQAAAAAAAADlACtejcD2qQEAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAK16NwPapAQAAAAAAAADlACtejcD2qQEAK16NwPapAQAAAAAAAADlAAAAAAAAANEAAAAAAAAA5QArXo3A9qkBAAAAAAAAANEAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAAAAAAAAA5QAAAAAAAADlACtejcD2qQEAAAAAAAAA5QArXo3A9qkBAAAAAAAAAOUAAAAAAAAA0QArXo3A9qkBAAAAAAAAAOUAK16NwPapAQAAAAAAAADRAAAAAAAAAOUAK16NwPapAQAAAAAAAADlAAAAAAAAAOUAK16NwPapAQAAAAAAAADlACtejcD2qQEAAAAAAAAA5QAAAAAAAADlAAAAAAAAAOUAAAAAAAAA5QAAAAAAAADlACtejcD2qQEAAAAAAAAA5QAAAAAAAADlAAAAAAAAAOUAK16NwPapAQArXo3A9qkBAAAAAAAAAOUAAAAAAAAA5QAAAAAAAADlACtejcD2qQEAAAAAAAAA5QAAAAAAAADlAAAAAAAAAOUAAAAAAAAA5QAAAAAAAADRACtejcD2qQEAK16NwPapAQAAAAAAAADlACtejcD2qQEAAAAAAAAA0QArXo3A9qkBAAAAAAAAANEAAAAAAAAA0QAAAAAAAADlAAAAAAAAAOUAAAAAAAAA5QArXo3A9qkBAAAAAAAAANEAAAAAAAAA5QAAAAAAAADRACtejcD2qQEAAAAAAAAA5QArXo3A9qkBACtejcD2qQEAK16NwPapAQArXo3A9qkBACtejcD2qQEAK16NwPapAQAAAAAAAADlACtejcD2qQEAK16NwPapAQArXo3A9qkBACtejcD2qQEAAAAAAAAA5QAAAAAAAADlACtejcD2qQEAK16NwPapAQArXo3A9qkBACtejcD2qQEAAAAAAAAA5QArXo3A9qkBACtejcD2qQEA="},"xaxis":"x","y":{"dtype":"f8","bdata":"PQrXo3DdSkBcj8L1KPxKQIXrUbge5UlApHA9CtcDS0CkcD0K10NKQM3MzMzMrElAAAAAAADgSkCuR+F6FC5JQD0K16NwvUdAmpmZmZl5SUDsUbgehStJQI\u002fC9ShcT0hApHA9CtfjSkBxPQrXo\u002fBKQClcj8L1aEpAexSuR+GaSUDNzMzMzGxLQArXo3A9aklAH4XrUbjeSUCkcD0K14NJQB+F61G4XkpA7FG4HoVrS0AfhetRuD5HQM3MzMzMLEpArkfhehTOSUCkcD0K1+NIQEjhehSuR0pAexSuR+F6R0BxPQrXoxBJQNejcD0Kd0lArkfhehTOSkAfhetRuH5OQClcj8L1iE9AexSuR+EqUEBI4XoUrqdPQK5H4XoUPlBAmpmZmZkpUEB7FK5H4SpRQB+F61G4Pk1AexSuR+EaTUC4HoXrUThKQLgehetRWEpA4XoUrkfBSkBxPQrXoxBLQJqZmZmZ+UtASOF6FK6HS0BxPQrXo1BKQEjhehSuB0xAPQrXo3DdSUD2KFyPwlVMQLgehetRmE1AhetRuB4FTUC4HoXrUdhJQDMzMzMz00lApHA9CtejSUBmZmZmZuZKQHsUrkfhuktA16NwPQq3S0AzMzMzM1NLQB+F61G4\u002fklA7FG4HoXrTkCPwvUoXO9RQMP1KFyP8lBApHA9CtdzUUD2KFyPwhVQQI\u002fC9Shc709APQrXo3DNUEAAAAAAAJBQQLgehetRmE9AFK5H4Xr0T0CamZmZmalQQFyPwvUoHE9A16NwPQp3TUCkcD0K18NOQD0K16Nw3U9AzczMzMysT0D2KFyPwhVQQHsUrkfhek5ArkfhehQuTUCkcD0K10NLQHE9Ctej8ExA7FG4HoWrSkCkcD0K18NNQPYoXI\u002fCFUxAcT0K16PQTECPwvUoXC9LQM3MzMzM7EtA16NwPQoXS0BI4XoUrudLQOxRuB6Fq0xApHA9CtdjTUAfhetRuN5PQOxRuB6Fi09AZmZmZmZmTkAUrkfhetRPQBSuR+F6NEpA16NwPQoXS0CPwvUoXO9MQFyPwvUoPExAmpmZmZl5S0AK16NwPepKQJqZmZmZ2UtAAAAAAAAATEAK16NwPUpMQIXrUbgeRU1ArkfhehQOTkDD9Shcj+JLQD0K16NwHU1AcT0K16OQTUDD9ShcjwJRQArXo3A9+lBAmpmZmZmpUEA9CtejcB1MQLgehetR2EtA9ihcj8L1TUCPwvUoXM9OQB+F61G43k1AFK5H4Xq0TUCuR+F6FG5LQGZmZmZm5kxAcT0K16OwTkCkcD0K16NOQHE9CtejcE9AKVyPwvVITUBI4XoUrudLQI\u002fC9ShcD05APQrXo3C9TUAzMzMzMxNMQK5H4XoUrklAH4XrUbi+S0ApXI\u002fC9ShMQFK4HoXrEUpAAAAAAADgSUDNzMzMzIxJQFK4HoXrkUtAuB6F61G4TkAzMzMzM5NPQLgehetROFBAmpmZmZlZT0A="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"SALES PERCENTAGE"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"MARGIN PERCENTAGE"}},"legend":{"title":{"text":"VALUE CATEGORY"},"tracegroupgap":0,"itemsizing":"constant"},"title":{"text":"Margin % vs Sales % Decision Map","x":0.5}},                        {"responsive": true}                    )                };            </script>        </div></div>
+                <div class="chart-card"><div>                            <div id="1387661a-539b-4eb2-a509-928f0e4eec2f" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("1387661a-539b-4eb2-a509-928f0e4eec2f")) {                    Plotly.newPlot(                        "1387661a-539b-4eb2-a509-928f0e4eec2f",                        [{"alignmentgroup":"True","hovertemplate":"variable=SOLD QTY\u003cbr\u003eITEM NAME=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"SOLD QTY","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"SOLD QTY","offsetgroup":"SOLD QTY","orientation":"v","showlegend":true,"textposition":"auto","x":["JNS001","JNS002","JNS002","JNS007","JNS011","JNS006","JNS006","JNS011","JNS012","JNS009"],"xaxis":"x","y":{"dtype":"i1","bdata":"AQEBAQEBAQEBAQ=="},"yaxis":"y","type":"bar"},{"alignmentgroup":"True","hovertemplate":"variable=REMAINING STOCK\u003cbr\u003eITEM NAME=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"REMAINING STOCK","marker":{"color":"#EF553B","pattern":{"shape":""}},"name":"REMAINING STOCK","offsetgroup":"REMAINING STOCK","orientation":"v","showlegend":true,"textposition":"auto","x":["JNS001","JNS002","JNS002","JNS007","JNS011","JNS006","JNS006","JNS011","JNS012","JNS009"],"xaxis":"x","y":{"dtype":"i1","bdata":"BAQEBAQEBAQEBA=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"ITEM NAME"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"value"}},"legend":{"title":{"text":"variable"},"tracegroupgap":0},"title":{"text":"Sold Qty vs Remaining Stock","x":0.5},"barmode":"group"},                        {"responsive": true}                    )                };            </script>        </div></div>
+            </div>
+
+            <div class="section">
+                <h2>Reorder Priority Table</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Colour</th>
+                                <th>Size</th>
+                                <th>Sold Qty</th>
+                                <th>Remaining</th>
+                                <th>Sales %</th>
+                                <th>Margin %</th>
+                                <th>Suggested Reorder</th>
+                                <th>Value</th>
+                                <th>Decision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR002</td>
+            <td>SHORT</td>
+            <td>BLACK</td>
+            <td>32</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>70.99%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR002</td>
+            <td>SHORT</td>
+            <td>BLACK</td>
+            <td>34</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>69.88%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>LOW005</td>
+            <td>LOWER</td>
+            <td>PRINTED</td>
+            <td>XL</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>69.08%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>LOW005</td>
+            <td>LOWER</td>
+            <td>PRINTED</td>
+            <td>L</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>68.92%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>LOW004</td>
+            <td>LOWER</td>
+            <td>GREEN</td>
+            <td>L</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>68.62%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>TSH001</td>
+            <td>T-SHIRT</td>
+            <td>BLACK</td>
+            <td>XXL</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>67.76%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>LOW005</td>
+            <td>LOWER</td>
+            <td>PRINTED</td>
+            <td>M</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.75%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR010</td>
+            <td>SHORT</td>
+            <td>BLACK</td>
+            <td>38</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.69%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR010</td>
+            <td>SHORT</td>
+            <td>BLACK</td>
+            <td>32</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.52%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR006</td>
+            <td>SHORT</td>
+            <td>PRINTED</td>
+            <td>30</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.4%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR004</td>
+            <td>SHORT</td>
+            <td>PRINTED</td>
+            <td>36</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.21%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR006</td>
+            <td>SHORT</td>
+            <td>PRINTED</td>
+            <td>32</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>66.04%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR006</td>
+            <td>SHORT</td>
+            <td>PRINTED</td>
+            <td>34</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>65.99%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR005</td>
+            <td>SHORT</td>
+            <td>GREEN</td>
+            <td>30</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.98%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR007</td>
+            <td>SHORT</td>
+            <td>RED</td>
+            <td>30</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.95%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR009</td>
+            <td>SHORT</td>
+            <td>RED</td>
+            <td>38</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.95%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR004</td>
+            <td>SHORT</td>
+            <td>PRINTED</td>
+            <td>34</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.7%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR009</td>
+            <td>SHORT</td>
+            <td>RED</td>
+            <td>36</td>
+            <td>4</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.59%</td>
+            <td>5</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR005</td>
+            <td>SHORT</td>
+            <td>GREEN</td>
+            <td>38</td>
+            <td>3</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.17%</td>
+            <td>4</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+        <tr>
+            <td>High Priority</td>
+            <td>SHOR007</td>
+            <td>SHORT</td>
+            <td>RED</td>
+            <td>34</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100.0%</td>
+            <td>64.09%</td>
+            <td>6</td>
+            <td><span class="badge high">High Value</span></td>
+            <td>Reorder Immediately</td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Slow Moving Items</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Colour</th>
+                                <th>Size</th>
+                                <th>Purchase Qty</th>
+                                <th>Sold Qty</th>
+                                <th>Remaining</th>
+                                <th>Sales %</th>
+                                <th>Decision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <td>JNS001</td>
+            <td>JEANS</td>
+            <td>BLACK</td>
+            <td>34</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS002</td>
+            <td>JEANS</td>
+            <td>LIGHT BLUE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS002</td>
+            <td>JEANS</td>
+            <td>LIGHT BLUE</td>
+            <td>34</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS003</td>
+            <td>JEANS</td>
+            <td>WHITE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS004</td>
+            <td>JEANS</td>
+            <td>BLUE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS006</td>
+            <td>JEANS</td>
+            <td>LIGHT BLUE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS006</td>
+            <td>JEANS</td>
+            <td>LIGHT BLUE</td>
+            <td>34</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS007</td>
+            <td>JEANS</td>
+            <td>WHITE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS009</td>
+            <td>JEANS</td>
+            <td>BLACK</td>
+            <td>34</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+        <tr>
+            <td>JNS011</td>
+            <td>JEANS</td>
+            <td>WHITE</td>
+            <td>32</td>
+            <td>5</td>
+            <td>1</td>
+            <td>4</td>
+            <td>20.0%</td>
+            <td>Do Not Reorder</td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
