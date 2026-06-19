@@ -74,7 +74,7 @@ const [trailDots, setTrailDots] = useState(
     formData.append("sales_file", salesFile);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/analyze", {
+      const response = await fetch("https://your-render-backend-url.onrender.com/analyze", {
         method: "POST",
         body: formData,
       });
@@ -257,12 +257,12 @@ useEffect(() => {
       </a>
 
       <a
-        href="http://127.0.0.1:5000/dashboard"
+        href="https://your-render-url.onrender.com/dashboard"
         target="_blank"
         rel="noreferrer"
         className="ghostBtn"
       >
-        View Dashboard
+      View Dashboard
       </a>
     </div>
   </div>
@@ -409,16 +409,16 @@ useEffect(() => {
               </div>
 
               <div className="resultActions">
+                
                 <a
-                  href="http://127.0.0.1:5000/download-report"
+                  href="https://your-render-url.onrender.com/download-report"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Download Excel
                 </a>
-
                 <a
-                  href="http://127.0.0.1:5000/dashboard"
+                  href="https://your-render-url.onrender.com/dashboard"
                   target="_blank"
                   rel="noreferrer"
                 >
