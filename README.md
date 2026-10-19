@@ -4,7 +4,7 @@ Retail Flow AI is a garment retail inventory analysis app. Upload a purchase bil
 
 ## Demo video
 
-<video controls src="retailflowai_workflow.mp4" title="Title"></video>
+<video controls src="https://photos.app.goo.gl/JT5d2RURoJLQRqry5"></video>
 
 ## Features
 
